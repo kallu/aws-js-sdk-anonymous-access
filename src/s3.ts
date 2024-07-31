@@ -4,19 +4,20 @@ import {
 
 export function ListBucket(list: string, bucket: string, prefix: string, region: string) {
 
-    // Initialize an S3 service with credentials for our identity pool.
+    // Initialize an S3 service with anonymous credentials.
     const s3 = new S3({
         region: region,
         signer: {
             sign: async (request) => request
         }
+        // Authentication from Cognito Identity Pool
         //credentials: fromCognitoIdentityPool({
         //  client: new CognitoIdentityClient({ region: region }),
         //  identityPoolId: identityPoolId,
         //}),
     });
 
-    // List objects in the bucketa
+    // List objects in the bucket
     const params = {
         Bucket: bucket,
         Delimiter: '/',
