@@ -2,12 +2,29 @@
 <html>
 <script src="dist/s3.js"></script>
 
-<body>
-Hello!
-</body>
+<head>
+    <style>
+        th,
+        td {
+            text-align: left;
+            padding-right: 10px;
+        }
+    </style>
+</head>
 
-<script>
-s3.fetchFromBucket("s3.carriagereturn.nl", "hello.jpg");
-</script>
+<body>
+    <h1>Hello World!</h1>
+    <table id=listing>
+        <tr>
+            <th>NAME</th>
+            <th>SIZE</th>
+            <th>CLASS</th>
+        </tr>
+    </table>
+
+    <script>
+        s3.ListBucket("listing", "s3.carriagereturn.nl", "", "eu-north-1");
+    </script>
+</body>
 
 </html>
